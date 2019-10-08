@@ -20,6 +20,32 @@ namespace Pindividual.BL
                 v1.Duracion = 5;
 
 
+                Aviones A1 = new Aviones();
+                A1.Id = 4;
+                A1.Modelo = "Airbus456";
+                A1.Asientos = "568";
+                A1.Cantidad = 684;
+
+
+                Paises_Destino_Aeropuerto PDA = new Paises_Destino_Aeropuerto();
+                PDA.id = 6;
+                PDA.id_vuelo = 5;
+                PDA.Paises = "USA";
+                PDA.Destino = "New York";
+                PDA.Aeropuerto = "Juan Santa Maria ";
+                PDA.Tarifa = 564;
+
+                Pasajeros pj = new Pasajeros();
+                pj.id = 8;
+                pj.Id_vuelo = 5;
+                pj.Nombre = "Nombre 1";
+                pj.Apellidos = "Apellidos 1";
+                pj.Visa = 454221;
+                pj.Pasaporte = 26564;
+
+
+
+
 
                 using (AeropuertoEntities context = new AeropuertoEntities())
                 {
@@ -178,6 +204,17 @@ namespace Pindividual.BL
                         vuelo.Escala = "CAMBIO";
                         context.SaveChanges();
 
+                        var Aviones = context.Aviones.Where(x => x.Cantidad == 1).SingleOrDefault();
+                        Aviones.Asientos = "CAMBIO";
+                        context.SaveChanges();
+
+                        var Pasajeros = context.Pasajeros.Where(x => x.Id_vuelo == 4).SingleOrDefault();
+                        Pasajeros.Nombre = "CAMBIO";
+                        context.SaveChanges();
+
+                        var PaisesDestinoAeropuerto = context.Paises_Destino_Aeropuerto.Where(x => x.Tarifa == 1).SingleOrDefault();
+                        PaisesDestinoAeropuerto.Destino = "CAMBIO";
+                        context.SaveChanges();
                     }
                     catch (Exception e)
                     {

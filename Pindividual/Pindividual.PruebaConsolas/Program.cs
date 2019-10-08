@@ -12,7 +12,8 @@ namespace Pindividual.PruebaConsolas
         static void Main(string[] args)
         {
             Prueba p = new Prueba();
-            p.Insertar();
+            //p.Insertar();
+            p.PruebaUpdate();
         }
     }
 }
